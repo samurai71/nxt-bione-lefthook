@@ -1,9 +1,33 @@
 {
   "snyk.advanced.autoSelectOrganization": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
-  },
+  "cSpell.language": "en,en-CA",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  // 1. Set Biome as the default for JS/TS/JSON
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  // 2. Use Prettier for CSS and everything else (to handle Tailwind sorting)
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.language": "en,en-CA"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

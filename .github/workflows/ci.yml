@@ -1,0 +1,38 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    quality-check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: pnpm/action-setup@v3
+              with:
+                  version: latest
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Biome Check
+              run: pnpm biome ci .
+
+            - name: Prettier Check
+              run: pnpm prettier --check .
+
+            - name: Spell Check
+              run: pnpm cspell "**"
+
+            - name: Commitlint (PRs only)
+              if: github.event_name == 'pull_request'
+              run: pnpm commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }}

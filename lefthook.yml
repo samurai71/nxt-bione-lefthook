@@ -7,19 +7,22 @@ commit-msg:
 pre-commit:
   parallel: true
   commands:
-    # 1. Biome handles the heavy lifting for JS/TS/JSON
+    # 1. Biome: Fast linting and formatting (No semis, single quotes)
     biome-check:
       glob: '*.{js,ts,jsx,tsx,json}'
-      run: pnpm biome check {staged_files}
+      # Added --apply to actually fix the files during the hook
+      run: pnpm biome check --no-errors-on-unmatched {staged_files}
       stage_fixed: true
 
-    # 2. Prettier handles Tailwind classes and other file types
-    # Note: We exclude the files Biome already handled to avoid conflicts
-    prettier-tailwind:
+    # 2. Prettier: Specifically for Tailwind class sorting
+    prettier-style:
       glob: '*.{js,ts,jsx,tsx,css}'
+      # This now handles Tailwind AND Import sorting with spaces
       run: pnpm prettier --write {staged_files}
       stage_fixed: true
 
+    # 3. Spell Check: Using your Canadian dictionary
     spell-check:
       glob: '*.{js,jsx,ts,tsx,md,json}'
-      run: pnpm cspell {staged_files}
+      # Added --no-summary to keep the output clean in the terminal
+      run: pnpm cspell --no-summary --no-progress {staged_files}

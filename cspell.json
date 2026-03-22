@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/packages/cspell-types/cspell.schema.json",
   "version": "0.2",
-  "language": "en,en-CA",
-  "import": [
-    "@cspell/dict-en-ca/cspell-ext.json"
+  "language": "en-ca",
+  "dictionaries": [
+    "en-ca"
   ],
   "words": [
     "biomejs",
@@ -11,6 +11,7 @@
     "commitizen",
     "commitlint",
     "config",
+    "conventional",
     "cspell",
     "esbenp",
     "JSON",
@@ -21,6 +22,7 @@
     "pnpm",
     "postcss",
     "tailwindcss",
+    "trivago",
     "vercel",
     "yaml"
   ],
@@ -30,6 +32,7 @@
     "public",
     "package-lock.json",
     "pnpm-lock.yaml",
+    ".vscode/*.*",
     "*.log"
   ]
 }
