@@ -9,6 +9,9 @@
     "lint": "biome check",
     "format": "biome format --write . && pnpm prettier --write .",
     "commit": "cz",
+    "lint:analyze": "neurolint analyze ./src --verbose",
+    "lint:fix": "neurolint fix ./src --all-layers --dry-run",
+    "lint:apply": "neurolint fix ./src --all-layers",
     "prepare": "lefthook install"
   },
   "dependencies": {

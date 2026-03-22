@@ -4,7 +4,7 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
+    // "source.organizeImports.biome": "explicit"
   },
   // 1. Set Biome as the default for JS/TS/JSON
   "[javascript]": {
