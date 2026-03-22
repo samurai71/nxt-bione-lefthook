@@ -1,25 +1,25 @@
 # lefthook.yml
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: pnpm commitlint --edit {1}
+
 pre-commit:
   parallel: true
   commands:
     # 1. Biome handles the heavy lifting for JS/TS/JSON
     biome-check:
-      glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}'
-      run: pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+      glob: '*.{js,ts,jsx,tsx,json}'
+      run: pnpm biome check {staged_files}
       stage_fixed: true
 
     # 2. Prettier handles Tailwind classes and other file types
     # Note: We exclude the files Biome already handled to avoid conflicts
-    prettier:
-      glob: '*.{css,md,yml,yaml}'
+    prettier-tailwind:
+      glob: '*.{js,ts,jsx,tsx,css}'
       run: pnpm prettier --write {staged_files}
       stage_fixed: true
 
     spell-check:
       glob: '*.{js,jsx,ts,tsx,md,json}'
       run: pnpm cspell {staged_files}
-
-commit-msg:
-  commands:
-    commitlint:
-      run: pnpm commitlint --edit {1}

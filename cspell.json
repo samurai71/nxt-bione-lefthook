@@ -2,12 +2,17 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/packages/cspell-types/cspell.schema.json",
   "version": "0.2",
   "language": "en,en-CA",
-  "import": ["@cspell/dict-en-ca/cspell-ext.json"],
+  "import": [
+    "@cspell/dict-en-ca/cspell-ext.json"
+  ],
   "words": [
     "biomejs",
+    "changelog",
+    "commitizen",
     "commitlint",
     "config",
     "cspell",
+    "esbenp",
     "JSON",
     "jsonc",
     "lefthook",
@@ -17,8 +22,7 @@
     "postcss",
     "tailwindcss",
     "vercel",
-    "yaml",
-    "esbenp"
+    "yaml"
   ],
   "ignorePaths": [
     "node_modules",
