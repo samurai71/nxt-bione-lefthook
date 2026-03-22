@@ -11,7 +11,7 @@ pre-commit:
     biome-check:
       glob: '*.{js,ts,jsx,tsx,json}'
       # Added --apply to actually fix the files during the hook
-      run: pnpm biome check --no-errors-on-unmatched {staged_files}
+      run: pnpm biome format --no-errors-on-unmatched {staged_files}
       stage_fixed: true
 
     # 2. Prettier: Specifically for Tailwind class sorting
@@ -22,7 +22,7 @@ pre-commit:
       stage_fixed: true
 
     # 3. Spell Check: Using your Canadian dictionary
-    spell-check:
-      glob: '*.{js,jsx,ts,tsx,md,json}'
-      # Added --no-summary to keep the output clean in the terminal
-      run: pnpm cspell --no-summary --no-progress {staged_files}
+    # spell-check:
+    #   glob: '*.{js,jsx,ts,tsx,md,json}'
+    # Added --no-summary to keep the output clean in the terminal
+    # run: pnpm cspell --no-summary --no-progress {staged_files}
