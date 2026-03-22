@@ -15,6 +15,10 @@ pre-commit:
       run: pnpm prettier --write {staged_files}
       stage_fixed: true
 
+    spell-check:
+      glob: '*.{js,jsx,ts,tsx,md,json}'
+      run: pnpm cspell {staged_files}
+
 commit-msg:
   commands:
     commitlint:
